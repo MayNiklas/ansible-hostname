@@ -1,2 +1,16 @@
 ---
 # tasks file for ansible-hostname
+
+- name: hostname definieren...
+  become: true
+  hostname:
+    name: "{{ hostname }}"
+
+
+- name: edit /etc/hosts
+  become: true
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^#?127.0.1.1'
+    line: '127.0.1.1 {{ hostname }}'
+
