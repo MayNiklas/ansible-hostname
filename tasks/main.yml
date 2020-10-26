@@ -7,10 +7,17 @@
     name: "{{ hostname }}"
 
 
-- name: edit /etc/hosts
+- name: edit /etc/hosts ipv4
   become: true
   lineinfile:
     dest: /etc/hosts
-    regexp: '^#?127.0.1.1'
-    line: '127.0.1.1 {{ hostname }}'
+    regexp: '^#?127.0.0.1'
+    line: '127.0.0.1 {{ hostname }} localhost'
 
+
+- name: edit /etc/hosts ipv6
+  become: true
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^#?::1'
+    line: '::1 {{ hostname }} localhost'
