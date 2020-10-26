@@ -1,7 +1,9 @@
-Role Name
+ansible-hostname
 =========
+[![Build Status](https://travis-ci.com/MayNiklas/ansible-hostname.svg?branch=main)](https://travis-ci.com/MayNiklas/ansible-hostname)
 
-A brief description of the role goes here.
+- defines hostname by reading out the {{ hostname }} variable
+- defining hostname in /etc/hosts
 
 Requirements
 ------------
